@@ -306,6 +306,25 @@ hr {
   padding: 3vw;
 }
 
+footer {
+  height: 80px;
+  width: 100vw;
+  background-color: #1C2551;
+  color: #E15225;
+  font-size: 20px;
+  padding: 25px;
+  font-style: bold;
+  position: relative;
+
+}
+
+footer img {
+  position: absolute;
+  right: 40px;
+  height: 60px;
+  top: 9px;
+}
+
 @media only screen and (min-width: 576px) {
   .abouticons {
     float: left;
@@ -335,6 +354,35 @@ main {
   position: fixed;
   left: 25px;
   z-index: 2;
+}
+
+#student-kitcoin {
+  font-size: 30px;
+}
+
+#student-kitcoin img {
+  height: 50px;
+}
+
+#student-coin {
+  font-size: 70px;
+}
+
+.staff-title {
+  font-size: 20px;
+}
+
+input.submit {
+  background-color: #1a2741;
+  border: none;
+  color: white;
+  padding: 5px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 7px 0;
 }
 
 #signout {

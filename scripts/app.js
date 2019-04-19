@@ -533,3 +533,21 @@ function classroomSendCoin(el) {
   var amount = el.querySelector('input[placeholder=Amount]').value;
   giveCoin(username, amount);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
