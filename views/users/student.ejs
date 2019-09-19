@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<% if (locals.message) { %>
+    <div class="block messageblock"><%= locals.message %></div>
+<% } %>
+
+<div class="block" id="coinblock">
+    <h1>Hello, <%= student.username %></h1>
+    <h2>Your KitCoins: <%= student.kitCoins %></h2>
+</div>
+
+<div class="block" id="chooseprizeblock">
+    <strong>Choose Prize</strong>
+    <hr>
+    <form action="/prizes/redeem" method="post">
+    <% if (locals.prizes) { %>
+    <% prizes.forEach(function(prize, index) {  %>
+        <%= prize.prizeName %> by <%= prize.creator[0].username %>: <input type="radio" name="prizeId" value="<%= prize._id %>"><br>
+    <% }); %>
+    <% } %>
+    <br>
+    <input type="submit" value="Select Prize!"/>
+    </form>
+</div>
+
+<div class="block">
+    <strong>Awaiting Prizes</strong><hr>
+    <% student.awaitingPrizes.forEach(function(awaitingPrize, index) {  %>
+        <%= awaitingPrize.prizeName %><br>
+    <% }); %>
+</div>
+
+<div class="block">
+    <strong>Redeemed Prizes</strong><hr>
+    <% student.redeemedPrizes.forEach(function(redeemedPrize, index) {  %>
+        <%= redeemedPrize.prizeName %><br>
+    <% }); %>
+</div>
+
+<% include ../partials/footer %>
+
+
+
+

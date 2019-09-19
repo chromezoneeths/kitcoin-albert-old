@@ -1,0 +1,72 @@
+<% include ../partials/header %>
+<% if (locals.message) { %>
+    <div class="block messageblock"><%= locals.message %></div>
+<% } %>
+
+<div class="block">
+    KitCoin Available to Give: <%= teacher.kitCoins %>
+    <% if (locals.student) { %>
+        <form action="/student/award" method="post">
+            Amount of KitCoin for <%= locals.student.username %>
+            <input type="hidden" name="id" value="<%= locals.student._id %>">
+            <input name="kitCoins" type="number" min="1" max="15" value="1"><br>
+            <input type="submit" value="Submit"/>
+        </form>
+    <% } %>
+    <form action="/student/search" method="post">
+        Find Student by ID: 
+        <input name="ethsId" type="number" min="100000" max="999999" value="100000"><br>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<div class="block">
+    <strong>Prizes You Offer:</strong>
+    <% prizes.forEach(function(prize, index) { %>
+        <% if (!prize.deleted) { %>
+        <form action="/prizes/edit" class="editprizeblock" method="post">
+            <input type="hidden" name="id" value="<%= prize._id%>">
+            Prize Name: 
+            <input type="text" name="prizeName" value="<%= prize.prizeName %>"/><br>
+            Description: 
+            <input type="text" name="description" value="<%= prize.description %>"/><br>
+            Price: 
+            <input name="price" type="number" min="1" max="100" value="<%= prize.price %>"><br>
+            Delete: 
+            <input type="checkbox" name="deleted" value="true"/><br>
+            <input type="submit" value="Submit Edit"/>
+        </form>
+        <% } %>
+    <% }); %>
+</div>
+
+<div class="block">
+Awaiting Confirms:
+<% awaitingConfirms.forEach(function(confirm, index) { %>
+    <% if (!confirm.studentReceived) { %>
+        <form action="/student/confirm" method="post">
+            Confirm <%= confirm.prize[0].prizeName %> for <%= confirm.student[0].username %>
+            <input type="hidden" name="studentId" value="<%= confirm.student[0]._id %>">
+            <input type="hidden" name="prizeId" value="<%= confirm.prize[0]._id %>">
+            <input type="hidden" name="confirmId" value="<%= confirm._id %>">
+            <input type="checkbox" value="true"><br>
+            <input type="submit" value="Submit"/>
+        </form>
+    <% } %>
+<% }); %>
+</div>
+
+<div class="block">
+    Create Prize: 
+    <form action="/prizes/new" method="post">
+        Prize Name: 
+        <input type="text" name="prizeName"/><br>
+        Description: 
+        <input type="text" name="description"/><br>
+        Price: 
+        <input name="price" type="number" min="1" max="100" value="1"><br>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<% include ../partials/footer %>

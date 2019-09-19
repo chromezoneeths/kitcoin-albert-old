@@ -1,0 +1,10 @@
+<% include ../partials/header %>
+***you can only do this once***
+<form method="post" action="/auth/update">
+    School ID: 
+    <input name="ethsId" type="number" min="100000" max="999999" value="100000"><br>
+    Coupon:
+    <input type="text" name="activationKey"><br>
+    <input type="submit" value="Submit"/>
+</form>
+<% include ../partials/footer %>

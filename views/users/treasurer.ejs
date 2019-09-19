@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+<% if (locals.message) { %>
+    <div class="block messageblock"><%= locals.message %></div>
+<% } %>
+
+<div class="block">
+    KitCoin Available to give: <%= economy.treasurer %><br>
+    Student Possessed Coin: <%= economy.student %><br>
+    Teacher Possessed Coin: <%= economy.teacher %><br>
+    <hr>
+    All Teachers: <br>
+    <% teachers.forEach(function(teacher, index) { %>
+        <%= teacher.username %> has <%= teacher.kitCoins %> kitCoins<br>
+    <% }); %>
+</div>
+
+<div class="block">
+<form method="post" action="/sendpay" onsubmit="return confirm('Do you really want to submit the form?');">
+    Send Money Out
+    <input type="number" name="kitCoins"/>
+    <input type="submit" value="Submit"/>
+</form>
+</div>
+
+<div class="block">
+<table>
+    <tr>
+        <th>Prize Name</th>
+        <th>Price</th>
+        <th>Availability</th>
+        <th>Creator</th>
+        <th>Delete Prize</th>
+    </tr>
+<% prizes.forEach(function(prize, index) { %>
+    <tr
+        class="
+            <% if(prize.deleted) { %>
+                deleted
+            <% } %> 
+        "
+    >
+        <td><%= prize.prizeName %></td>
+        <td><%= prize.price %></td>
+        <td><%= prize.quantityAvailable %></td>
+        <td><%= prize.creator[0].username %></td>
+        <td><a href="/prizes/delete/<%= prize._id %>">Delete Prize</a></td>
+    </tr>
+<% }); %>
+</table>
+</div>
+<% include ../partials/footer %>

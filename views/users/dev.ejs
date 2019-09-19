@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+<% if (locals.message) { %>
+    <div class="block messageblock"><%= locals.message %></div>
+<% } %>
+
+<div class="block">
+<%= user %>
+<hr>
+<form action="/dev/switch" method="post">
+  Teacher
+  <input type="radio" name="status" value="teacher"/><br>
+  Student
+  <input type="radio" name="status" value="student"/><br>
+  Treasurer
+  <input type="radio" name="status" value="treasurer"/><br>
+  <input type="submit" value="Submit"/>
+</form>
+<!--Update User:-->
+<form action="/dev/update" method="post">
+    Username: <input type="text" name="username"><br>
+    Status: 
+    <select name="status">
+          <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+          <option value="treasurer">Treasurer</option>
+    </select><br>
+    $incCoin: <input type="number" name="incCoin"><br>
+    $set ethsId: <input type="number" name="ethsId"><br>
+    <input type="submit" value="Update User">
+</form>
+</div>
+<% include ../partials/footer %>

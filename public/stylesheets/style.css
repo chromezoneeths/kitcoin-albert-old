@@ -1,0 +1,160 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+nav, aside, main {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box !important;
+	font-family: 'Roboto Slab', serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*General Elements*/
+
+body {
+	background: #1B2452;
+}
+
+strong {
+	font-weight: bold	
+}
+
+button {
+	border: 8px solid #E26225;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.block {
+	border: 8px solid #E26225;
+	border-radius: 5px;
+	background: #fff;
+	width: 30%;
+	margin: calc(10/8%);
+	display: inline-block;
+}
+
+.messageblock {
+	border: 8px solid #50AD55;
+	border-radius: 5px;
+	background: #fff;
+}
+
+hr {
+	border-top: 1px solid #000;
+}
+
+footer {
+  height: 70px;
+  padding: 10px;
+  background: #1B243E;
+  width: calc( 100%);
+	color: #E26238 !important;
+}
+
+footer a {
+	color: #E2624D !important;
+}
+
+footer img {
+	height: 40px;
+}
+
+.deleted {
+  color: red;
+}
+/*student specific*/
+
+#coinblock h2 {
+	text-align: center;
+}
+
+#chooseprizeblock [type=submit] {
+	margin: 0 0 0 50%;
+	transform: translate(-50%, 0);
+}
+
+@media (min-width: 1001px) { /* extension*/
+	.block {
+		float: left;
+		margin: calc(20/8%);
+	}
+}
+
+@media (max-width: 1000px) { /* extension*/
+	strong {
+		font-size: 18px;
+	}
+
+  .block {
+  	margin: 10px 20px;
+  	width: calc(100% - 30px);
+  	padding: 20px;
+  }
+	
+	.messageblock {
+		margin-bottom: 0;
+		padding: 10px;
+	}
+	
+  #coinblock h1 {
+  	font-size: 40px;
+  	font-weight: bold;
+  }
+  #coinblock h2 {
+  	font-size: 20px;
+  	margin-top: 14px;
+  }
+  
+  #chooseprizeblock {
+  	font-size: 18px;
+  }
+  
+}
+
+/*teacher specific*/
+@media (max-width: 1000px) { /* extension*/
+	.editprizeblock {
+		border-top: 1px solid #000;
+		margin-top: 10px;
+		padding-top: 6px;
+	}
+}
+/*treasurer specific*/
+/*dev specific*/
